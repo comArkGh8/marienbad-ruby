@@ -7,12 +7,15 @@ puts "Hello World"
 
 board = MarienbadBoard.new
 
-sticks_hash = {1 => 0, 2=>0, 3=>3, 4=>7}
+sticks_hash = {1 => 3, 2=>1, 3=>0, 4=>7}
 new_board = MarienbadBoard.new(sticks_hash)
 init_board = MarienbadBoard.new
 
 
 init_board.change(2, 1)
-puts init_board.row_of_sticks[2]
-puts init_board.row_of_sticks[3]
 
+sorted = new_board.sort_by_increasing_sticks
+
+puts sorted
+puts new_board.get_order_at("row", 1)
+puts new_board.get_order_at("sticks", 3)

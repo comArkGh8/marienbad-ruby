@@ -4,6 +4,8 @@
 
 class MarienbadBoard
   #include Operation modules
+  require_relative "row_operations"
+  include RowOperations
   
   attr_reader :row_of_sticks
   
