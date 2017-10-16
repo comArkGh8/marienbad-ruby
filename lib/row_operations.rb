@@ -5,6 +5,7 @@
 module RowOperations
   
   
+  
   def number_of_non_zero_rows
     num_zeros = 0
     row_of_sticks.each {|r,s|
@@ -31,8 +32,29 @@ module RowOperations
     end
   end
     
+  # returns true if there are two repeated rows
+  # in addition sets the two rows variable to a pair of rows
+  def has_repeated_row?
+    counts = Hash.new(0)
+    # convert hash to array
+    # go through each; count occurrence 
+    row_of_sticks.to_a.each{|e|
+      counts[e[1]] +=1 unless e[1]==0
+    }
+    map_of_pairs=row_of_sticks.select{|k,v| counts[v]>=2}
 
-  # next take care of situation of equal rows...
+    # if map_of_pairs not empty return true
+    if map_of_pairs.empty?
+      return false
+    else
+      # select the first pair: order then choose first two
+      first_pair_array = map_of_pairs.sort_by {|k,v| v}
+      two_same[0] = first_pair_array[0][0]
+      two_same[1] = first_pair_array[1][0]
+      return true
+    end
+    
+  end
  
     
 end

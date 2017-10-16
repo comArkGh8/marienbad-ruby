@@ -8,12 +8,15 @@ class MarienbadBoard
   include RowOperations
   
   attr_reader :row_of_sticks
+  attr_accessor :two_same
+  
   
   #make a board with input as a
   #given hash map or the startup board
   def initialize(initial_board=nil)
     initial_board.nil? ? @row_of_sticks={1 => 1, 2=>3, 3=>5, 4=>7}: 
       @row_of_sticks=initial_board
+      @two_same = Array.new
   end
   
   
