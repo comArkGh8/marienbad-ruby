@@ -31,6 +31,9 @@ module RowOperations
       when "sticks" then return sorted_map.values[k-1]
     end
   end
+  
+  
+  
     
   # returns true if there are two repeated rows
   # in addition sets the two rows variable to a pair of rows
@@ -41,16 +44,14 @@ module RowOperations
     row_of_sticks.to_a.each{|e|
       counts[e[1]] +=1 unless e[1]==0
     }
-    map_of_pairs=row_of_sticks.select{|k,v| counts[v]>=2}
+    array_of_pairs=row_of_sticks.select{|k,v| counts[v]>=2}.sort_by {|k,v| v}
 
     # if map_of_pairs not empty return true
-    if map_of_pairs.empty?
+    if array_of_pairs.empty?
       return false
     else
-      # select the first pair: order then choose first two
-      first_pair_array = map_of_pairs.sort_by {|k,v| v}
-      two_same[0] = first_pair_array[0][0]
-      two_same[1] = first_pair_array[1][0]
+      two_same[0] = array_of_pairs[0][0]
+      two_same[1] = array_of_pairs[1][0]
       return true
     end
     
