@@ -23,6 +23,12 @@ module RowOperations
   end
   
   
+  # gets sum of all sticks
+  def sum_of_sticks
+    row_of_sticks.values.sum
+  end
+  
+  
   # returns (row or sticks) in kth order (from 1-number of non-zero)
   def get_order_at(row_or_sticks,k)
     sorted_map=sort_by_increasing_sticks

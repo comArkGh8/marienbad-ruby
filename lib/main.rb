@@ -12,7 +12,7 @@ init_board = MarienbadBoard.new
 
 
 
-puts new_board.has_repeated_row?
-p new_board.two_same
+puts new_board.sum_of_sticks
+
 
  

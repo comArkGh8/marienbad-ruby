@@ -55,6 +55,16 @@ describe RowOperations do
 
   end
   
+  it "checks sum of sticks" do
+        
+    expect(@marienbad_board_4.sum_of_sticks).to eq 11
+    expect(@marienbad_board_3.sum_of_sticks).to eq 9
+    expect(@marienbad_board_2.sum_of_sticks).to eq 3
+    
+    expect(@marienbad_board_1.sum_of_sticks).to eq 6
+
+  end
+  
   
   
 end
