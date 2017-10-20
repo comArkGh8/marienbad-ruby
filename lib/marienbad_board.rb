@@ -6,7 +6,7 @@ class MarienbadBoard
   #include Operation modules
   require_relative "row_operations"
   include RowOperations
-  #include LosingSituations
+  include LosingSituations
   
   attr_reader :row_of_sticks
   attr_accessor :two_same
