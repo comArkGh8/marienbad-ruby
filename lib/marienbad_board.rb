@@ -5,6 +5,7 @@
 class MarienbadBoard
   #include Operation modules
   require_relative "row_operations"
+  require_relative "losing_situations"
   include RowOperations
   include LosingSituations
   
