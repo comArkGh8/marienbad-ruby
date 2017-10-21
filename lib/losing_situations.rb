@@ -29,12 +29,13 @@
 
 
 module LosingSituations
+  require 'row_operations'
+  include RowOperations
   
   # returns true if it is a losing situation
   # input stick_array is the sorted array of non-zero sticks
-  def stick_array_is_loser?(stick_array=nil)
+  def self.stick_array_is_loser?(stick_array)
     
-    stick_array ||= sort_by_increasing_sticks.values
     sum_of_sticks= stick_array.sum
     return true if sum_of_sticks == 1
    
@@ -42,10 +43,11 @@ module LosingSituations
     # next belongs to 3 or four rows
     return true if (sum_of_sticks == 14) || (sum_of_sticks == 16)
     
-    case number_of_non_zero_rows(stick_array)
+    case RowOperations.number_of_non_zero_rows(stick_array)
         
       when 2  
-        return true if stick_array[0]>1 && array_has_repeated_row?(stick_array)
+        return true if stick_array[0]>1 && 
+          RowOperations.array_has_repeated_row?(stick_array)
       
       when 3
         return true if (stick_array == [1,4,5]) || 

@@ -4,9 +4,10 @@
 
 module RowOperations
   
+  require 'set'
   
   # input will already have zeros removed
-  def number_of_non_zero_rows(stick_array)
+  def self.number_of_non_zero_rows(stick_array)
     return stick_array.length
   end
   
@@ -19,12 +20,6 @@ module RowOperations
   end
   
   
-  # gets sum of all sticks
-  #def sum_of_sticks
-  #  row_of_sticks.values.sum
-  #end
-  
-  
   # returns (row or sticks) in kth order (from 1-number of non-zero)
   def get_order_at(row_or_sticks,k)
     sorted_map=sort_by_increasing_sticks
@@ -33,8 +28,6 @@ module RowOperations
       when "sticks" then return sorted_map.values[k-1]
     end
   end
-  
-  
   
     
   # returns true if there are two repeated rows
@@ -48,19 +41,13 @@ module RowOperations
     }
     array_of_pairs=row_of_sticks.select{|k,v| counts[v]>=2}.sort_by {|k,v| v}
 
-    # if map_of_pairs not empty return true
-    if array_of_pairs.empty?
-      return false
-    else
-      two_same[0] = array_of_pairs[0][0]
-      two_same[1] = array_of_pairs[1][0]
-      return true
-    end
+    # if array_of_pairs not empty return true
+    array_of_pairs.empty? ? (return false) : (return true)
     
   end
   
   # just gives true or false when applied to the stick array
-  def array_has_repeated_row?(array)
+  def self.array_has_repeated_row?(array)
     array.to_set.length<array.length ?  true : false
   end
  
