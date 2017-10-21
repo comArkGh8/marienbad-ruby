@@ -5,13 +5,9 @@
 module RowOperations
   
   
-  
-  def number_of_non_zero_rows
-    num_zeros = 0
-    row_of_sticks.each {|r,s|
-      num_zeros +=1 if s==0
-    }
-    return 4-num_zeros
+  # input will already have zeros removed
+  def number_of_non_zero_rows(stick_array)
+    return stick_array.length
   end
   
   
@@ -24,9 +20,9 @@ module RowOperations
   
   
   # gets sum of all sticks
-  def sum_of_sticks
-    row_of_sticks.values.sum
-  end
+  #def sum_of_sticks
+  #  row_of_sticks.values.sum
+  #end
   
   
   # returns (row or sticks) in kth order (from 1-number of non-zero)
@@ -61,6 +57,11 @@ module RowOperations
       return true
     end
     
+  end
+  
+  # just gives true or false when applied to the stick array
+  def array_has_repeated_row?(array)
+    array.to_set.length<array.length ?  true : false
   end
  
     

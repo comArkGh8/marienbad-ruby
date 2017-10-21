@@ -31,30 +31,32 @@
 module LosingSituations
   
   # returns true if it is a losing situation
-  def is_loser?
+  # input stick_array is the sorted array of non-zero sticks
+  def stick_array_is_loser?(stick_array=nil)
     
+    stick_array ||= sort_by_increasing_sticks.values
+    sum_of_sticks= stick_array.sum
     return true if sum_of_sticks == 1
    
     # else divide according to number of non-zero rows
     # next belongs to 3 or four rows
     return true if (sum_of_sticks == 14) || (sum_of_sticks == 16)
     
-    sorted_stick_array = sort_by_increasing_sticks.values
-    case number_of_non_zero_rows
+    case number_of_non_zero_rows(stick_array)
         
       when 2  
-        return true if sorted_stick_array[0]>1 && has_repeated_row?
+        return true if stick_array[0]>1 && array_has_repeated_row?(stick_array)
       
       when 3
-        return true if (sorted_stick_array == [1,4,5]) || 
-          (sorted_stick_array == [2,4,6])
+        return true if (stick_array == [1,4,5]) || 
+          (stick_array == [2,4,6])
         
-        return true if sorted_stick_array[0]==1 && ((sum_of_sticks == 3) ||
+        return true if stick_array[0]==1 && ((sum_of_sticks == 3) ||
           (sum_of_sticks == 6))
         
       when 4
-        return true if sum_of_sticks == (2*sorted_stick_array[0] + 
-          2*sorted_stick_array[2])
+        return true if sum_of_sticks == (2*stick_array[0] + 
+          2*stick_array[2])
   
     end
     

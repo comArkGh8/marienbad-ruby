@@ -12,7 +12,5 @@ init_board = MarienbadBoard.new
 
 
 
-puts new_board.sum_of_sticks
-
 
  
