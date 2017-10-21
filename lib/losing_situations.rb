@@ -29,8 +29,6 @@
 
 
 module LosingSituations
-  require 'row_operations'
-  include RowOperations
   
   # returns true if it is a losing situation
   # input stick_array is the sorted array of non-zero sticks

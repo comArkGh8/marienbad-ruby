@@ -5,7 +5,6 @@
 module RowOperations
   
   require 'set'
-  
   # input will already have zeros removed
   def self.number_of_non_zero_rows(stick_array)
     return stick_array.length
@@ -42,6 +41,14 @@ module RowOperations
     array_of_pairs=row_of_sticks.select{|k,v| counts[v]>=2}.sort_by {|k,v| v}
 
     # if array_of_pairs not empty return true
+    # if map_of_pairs not empty return true
+    if array_of_pairs.empty?
+        return false
+      else
+        two_same[0] = array_of_pairs[0][0]
+        two_same[1] = array_of_pairs[1][0]
+        return true
+      end
     array_of_pairs.empty? ? (return false) : (return true)
     
   end
