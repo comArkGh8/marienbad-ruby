@@ -6,8 +6,10 @@ class MarienbadBoard
   #include Operation modules
   require_relative "row_operations"
   require_relative "losing_situations"
+  require_relative "choice_operations"
   include RowOperations
   include LosingSituations
+  include ChoiceOperations
   
   attr_reader :row_of_sticks
   attr_accessor :two_same

@@ -28,12 +28,12 @@ module ChoiceOperations
     end
     
     # check if removing a row produces a loser
-    for index in (1..sorted_map.size) do
+    sorted_map.keys.each{|index|
       # get array with index removed
       array_index_removed = sorted_map.select{|k,v| k!=index }.values
       return [index,sorted_map[index]] if 
         LosingSituations.stick_array_is_loser?(array_index_removed)
-    end
+    }
     
     # else go through case by case of numbers of non-zero rows
     case number_of_rows
