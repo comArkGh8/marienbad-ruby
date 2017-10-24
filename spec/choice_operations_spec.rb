@@ -128,5 +128,91 @@ describe ChoiceOperations do
     expect(@board.best_choice).to eq [3,1]
   end
   
+  it "should give 541 from 543" do
+    @given_sticks={1 => 0, 2=>3, 3=>4, 4=>5}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [2,2]
+  end
+  
+  it "should give 330 from 133" do
+    @given_sticks={1 => 1, 2=>0, 3=>3, 4=>3}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [1,1]
+  end
+  
+  it "should give 642 from 643" do
+    @given_sticks={1 => 0, 2=>3, 3=>4, 4=>6}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [2,1]
+  end
+  
+  it "should give 11kk from 11nk" do
+    @given_sticks={1 => 1, 2=>3, 3=>1, 4=>5}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [4,2]
+  end
+  
+  it "should give 2211 from 1225" do
+    @given_sticks={1 => 1, 2=>2, 3=>5, 4=>2}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [3,4]
+  end
+  
+  it "should give stall from 1133" do
+    @given_sticks={1 => 1, 2=>3, 3=>3, 4=>1}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [3,1]
+  end
+  
+  it "should give 321 from 321n" do
+    @given_sticks={1 => 1, 2=>3, 3=>2, 4=>7}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [4,7]
+  end
+  
+  it "should give 541 from 541n" do
+    @given_sticks={1 => 1, 2=>3, 3=>4, 4=>5}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [2,3]
+  end
+  
+  it "should give 642 from 642n" do
+    @given_sticks={1 => 1, 2=>2, 3=>4, 4=>6}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [1,1]
+  end
+  
+  it "should stall 6431" do
+    @given_sticks={1 => 1, 2=>6, 3=>4, 4=>3}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [2,1]
+  end
+  
+  it "should stall 6521" do
+    @given_sticks={1 => 1, 2=>6, 3=>5, 4=>2}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [2,1]
+  end
+  
+  it "should give 2332 from 2334" do
+    @given_sticks={1 => 2, 2=>3, 3=>3, 4=>4}
+    @board = MarienbadBoard.new(@given_sticks)
+    
+    expect(@board.best_choice).to eq [4,2]
+  end
+  
+  
+  
 end
 
